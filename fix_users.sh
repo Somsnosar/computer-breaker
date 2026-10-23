@@ -16,8 +16,11 @@ while IFS=: read -r user _ uid _; do
     if [ "$adminbool" = "y" ]; then
         sudo usermod -aG sudo "$user"
         echo "sudoed $user"
+    elif [ "$adminbool" = "n" ]; then
+        sudo deluser "$user" sudo
+        echo "de-sudoed $user"
     fi
     if [ "$passwordbool" = "y" ]; then
-        sudo passwd "$user"
+        sudo passwd "$user" < /dev/tty
     fi
 done < /etc/passwd
