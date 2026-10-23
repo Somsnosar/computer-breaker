@@ -23,4 +23,5 @@ while IFS=: read -r user _ uid _; do
     if [ "$passwordbool" = "y" ]; then
         sudo passwd "$user" < /dev/tty
     fi
+    echo -e "\n"
 done < /etc/passwd
