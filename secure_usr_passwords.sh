@@ -7,6 +7,7 @@ while IFS=: read -r user _ uid _; do
     fi
     echo -e "\n"
     echo "$user (uid $uid)"
-    echo "$secure" | sudo passwd --stdin "$user"
+    echo "$user:$(openssl rand -base64 12)" | sudo chpasswd
+    sudo chage -d 0 "$user"
     echo -e "\n"
 done < /etc/passwd
