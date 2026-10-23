@@ -6,6 +6,7 @@ while IFS=: read -r user _ uid _; do
     read -r -p "do kill? " existbool
     if [ "$existbool" = "y" ]; then
         sudo userdel -r "$user"
+        echo "killed $user"
         continue
     fi
 
@@ -14,6 +15,7 @@ while IFS=: read -r user _ uid _; do
 
     if [ "$adminbool" = "y" ]; then
         sudo usermod -aG sudo "$user"
+        echo "sudoed $user"
     fi
     if [ "$passwordbool" = "y" ]; then
         sudo passwd "$user"
