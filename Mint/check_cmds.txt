@@ -8,3 +8,5 @@ systemctl list-units --type=service --state=running
 ps aux | grep -v "\[" | head -10
 # ssh
 grep -v "^#" /etc/ssh/sshd_config | grep -v "^$"
+# kjernel hardening
+cat /etc/sysctl.conf | grep -v "^#" | grep -v "^$"
