@@ -6,3 +6,5 @@ cat /etc/security/pwquality.conf | grep -v "^#" | grep -v "^$"
 systemctl list-units --type=service --state=running
 # processes
 ps aux | grep -v "\[" | head -10
+# ssh
+grep -v "^#" /etc/ssh/sshd_config | grep -v "^$"
