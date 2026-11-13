@@ -1,0 +1,4 @@
+newuser policy
+cat /etc/login.defs | grep -v "^#" | grep "PASS"
+complexity
+cat /etc/security/pwquality.conf | grep -v "^#" | grep -v "^$"
