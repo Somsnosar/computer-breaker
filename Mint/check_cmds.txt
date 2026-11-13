@@ -1,4 +1,8 @@
-newuser policy
+# newuser policy
 cat /etc/login.defs | grep -v "^#" | grep "PASS"
-complexity
+# complexity
 cat /etc/security/pwquality.conf | grep -v "^#" | grep -v "^$"
+# services
+systemctl list-units --type=service --state=running
+# processes
+ps aux | grep -v "\[" | head -10
