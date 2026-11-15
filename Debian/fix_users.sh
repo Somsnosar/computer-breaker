@@ -14,7 +14,7 @@ while IFS=: read -r user _ uid _; do
     read -r -p "do admin? " adminbool  < /dev/tty
     read -r -p "do password change? " passwordbool  < /dev/tty
 
-    if [ "$adminbool" = "y" ]; then
+    if [ "$adminbool" = "y" ]; thenit
         sudo usermod -aG sudo "$user"
         echo "sudoed $user"
     elif [ "$adminbool" = "n" ]; then
